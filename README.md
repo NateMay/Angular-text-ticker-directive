@@ -5,7 +5,7 @@ An attribute directive that transforms an element into a never ending carousel o
 
 Copy the `ticker.directive.ts` into your project.
 
-declare `TickerDirective` in your  `NgModule` (or the root-most `NgModule`s that you will use it if you plan to lazy load)
+Declare `TickerDirective` in your  `NgModule` (or the root-most `NgModule`s that you will use it if you plan to lazy load)
 ````
 import { TickerDirective } from './directives/ticker.directive';
 ...
