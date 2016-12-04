@@ -34,6 +34,9 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 ```
 <div ticker [text]="food.name" [size]="30"></div>
 ```
+### Example
+
+[Plunkr](https://embed.plnkr.co/4mBHkIVTetC0kh34JOyT/)
 
 ## Parameters
 
