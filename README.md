@@ -38,6 +38,6 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 ## Parameters
 
 * **Text:** `[text]="{{your.text}}"` - Can take a raw string, interpolated value from the component. Can be configured to take an array of strings (see comments in the directive)
-* **Speed:** `[speed]="30" - 1 tick every 30 milliseconds
+* **Speed:** `[speed]="30"` - 1 tick every 30 milliseconds
 * **Padding-right:** `[padding-right]='50'` - results in 50px between each set of scrolling text (defaults to 16px)
 * **Size:** [size]="24" - results in `font-size: 24px;` (defaults to 16px)
