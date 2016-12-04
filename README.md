@@ -34,6 +34,16 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 ```
 <div ticker [text]="food.name" [size]="30"></div>
 ```
+
+Wrap the ticker element in a conatiner with the following styles:
+
+```
+.container{
+   overflow-x: hidden;
+   overflow-y: scroll;
+   white-space: nowrap;
+}
+```
 ### Example
 
 [Plunkr](https://embed.plnkr.co/4mBHkIVTetC0kh34JOyT/)
