@@ -21,6 +21,7 @@ Add a "ghost" element anywhere in your application. This will be used to measure
 ```
 <div id="ghost"></div>
 
+/* in main stylesheet */
 #ghost{
     display: inline-block;
     height: 0;
@@ -38,7 +39,8 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 Wrap the ticker element in a conatiner with the following styles:
 
 ```
-.container{
+/* in main stylesheet */
+.tickerContainer{
    overflow-x: hidden;
    overflow-y: scroll;
    white-space: nowrap;
