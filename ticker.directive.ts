@@ -65,6 +65,9 @@ export class TickerDirective implements OnInit {
         this.setIgnoredAtts();
         this.textWidth = this.getTextWidth();
         this.firstNode = this.createTickerNode( this.firstNode, this.text );
+        if ( this.trigger === 'auto' && this.tickerNeeded()) {
+            this.initTicker();
+        }
     }
 
     setIgnoredAtts(): void {
@@ -73,9 +76,6 @@ export class TickerDirective implements OnInit {
         if ( !this.trigger )      { this.trigger = 'onMouseEnter'; }
         if ( !this.size )         { this.size = 16; }
         if ( !this.text )         { this.text = 'You have to add the attribute => [text]="{{component.value}}"'; }
-        if ( this.trigger === 'auto' && this.tickerNeeded()) {
-            this.initTicker();
-        }
         this.idle = true;
     }
 
