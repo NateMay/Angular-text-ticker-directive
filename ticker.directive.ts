@@ -4,34 +4,41 @@ import { Directive, ElementRef, HostListener, Input, Renderer, OnInit } from '@a
 export class TickerDirective implements OnInit {
 
     margin: number; // margin of the text nodes which decrements to tick to the left
-    interval: any;  // used to kill the setTimout function after mouseleave
+    interval: any;  // used to kill the setTimout 
     firstNode: any; // the node which displays first and without mouseover 
     view: any[];    // an array of nodes attached to the main node to provide a seemless scroll
     textWidth: number;
+    idle: boolean;
 
     @Input('speed') speed: number;                  // milliseconds between ticks
     @Input('padding-right') paddingRight: number;
     @Input('size') size: number;
-
-    /******* USE THIS IF YOU PASS IN SINGLE STRING *******/
+    @Input('trigger') trigger: string;
     @Input('text') text: string;
-
-    /******* USE THIS IF YOU PASS IN AN ARRAY OF STRINGS *******/
-    // @Input('text') text: string[];
 
     constructor(private el: ElementRef, private r: Renderer) {  }
 
     @HostListener('mouseenter') onMouseEnter(): void  {
+        if ( this.trigger === 'onMouseEnter') {
+            this.initTicker();
+        }
+    }
+
+    @HostListener('click') onClick(): void  {
+        if ( this.trigger === 'onClick') {
+            if ( this.idle ) {
+                this.initTicker();
+            } else {
+                this.reset();
+            }
+            this.idle = !this.idle;
+        }
+    }
+
+    initTicker(): void {
         if (this.tickerNeeded()) {
             this.margin = 0;
 
-            /******* USE THIS IF YOU PASS IN AN ARRAY OF STRINGS *******/
-            // this.view = [];
-            // for (let t = 0; t < this.text.length; t++){
-            //     this.view.push( this.createTickerNode( '<T>', this.text[t] ) );
-            // }
-
-            /******* USE THIS IF YOU PASS IN SINGLE STRING *******/
             this.view = [
                 this.createTickerNode( '<T>', this.text ),
                 this.createTickerNode( '<T>', this.text )
@@ -43,7 +50,7 @@ export class TickerDirective implements OnInit {
     }
 
     @HostListener('mouseleave') onMouseLeave(): void {
-        if (this.tickerNeeded()) {
+        if (this.tickerNeeded() && this.trigger === 'onMouseEnter') {
             this.reset();
         }
     }
@@ -63,8 +70,13 @@ export class TickerDirective implements OnInit {
     setIgnoredAtts(): void {
         if ( !this.paddingRight ) { this.paddingRight = 16; }
         if ( !this.speed )        { this.speed = 25; }
+        if ( !this.trigger )      { this.trigger = 'onMouseEnter'; }
         if ( !this.size )         { this.size = 16; }
         if ( !this.text )         { this.text = 'You have to add the attribute => [text]="{{component.value}}"'; }
+        if ( this.trigger === 'auto' && this.tickerNeeded()) {
+            this.initTicker();
+        }
+        this.idle = true;
     }
 
     createTickerNode( self: any , text: string ): any {
@@ -84,7 +96,7 @@ export class TickerDirective implements OnInit {
     }
 
     getTextWidth(): number {
-        let t = this.r.createElement( document.getElementById('temp'), 'div' );
+        let t = this.r.createElement( document.getElementById('ghost'), 'div' );
         this.r.setText( t, this.text );
         this.r.setElementStyle( t, 'font-size', this.size + 'px');
         let w = t.offsetWidth;
@@ -93,8 +105,6 @@ export class TickerDirective implements OnInit {
     }
 
     tickerNeeded(): boolean {
-        // console.log(this.textWidth);
-        // console.log(this.el.nativeElement.parentElement.offsetWidth - 2);
         return this.textWidth > this.el.nativeElement.parentElement.offsetWidth - 2;
     }
 }
