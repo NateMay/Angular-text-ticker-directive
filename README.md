@@ -53,5 +53,5 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 * **Text:** `[text]="'Some Text'"` - sets the ticker text. Can take a raw string or interpolated value from the component. 
 * **Speed:** `[speed]="30"` - Sets tick interval in milliseconds (defaults to 1 tick every 25 milliseconds)
 * **Padding-right:** `[padding-right]='50'` - sets the space between strings (defaults to 16px)
-* **Size:** [size]="24" - Sets the font-size (defaults to 16px)
-* **Trigger** [trigger]="'onClick'" - selects how the ticker will be triggered: 'onMouseEnter', 'onClick', or 'auto' ('onMouseEnter' is default)
+* **Size:** `[size]="24"` - Sets the font-size (defaults to 16px)
+* **Trigger** `[trigger]="'onClick'"` - selects how the ticker will be triggered: 'onMouseEnter', 'onClick', or 'auto' ('onMouseEnter' is default)
