@@ -75,7 +75,7 @@ export class TickerDirective implements OnInit {
         if ( !this.speed )        { this.speed = 25; }
         if ( !this.trigger )      { this.trigger = 'onMouseEnter'; }
         if ( !this.size )         { this.size = 16; }
-        if ( !this.text )         { this.text = 'You have to add the attribute => [text]="{{component.value}}"'; }
+        if ( !this.text )         { this.text = 'You need to add the [text] attribute'; }
         this.idle = true;
     }
 
