@@ -50,8 +50,8 @@ Add the attribute `ticker` to the desired element and pass in the desired parame
 
 ## Parameters
 
-* **Text:** `[text]="'Some Text'"` - Can take a raw string, interpolated value from the component. Can be configured to take an array of strings (see comments in the directive)
-* **Speed:** `[speed]="30"` - 1 tick every 30 milliseconds (defaults to 25)
-* **Padding-right:** `[padding-right]='50'` - results in 50px between each set of scrolling text (defaults to 16px)
-* **Size:** [size]="24" - results in `font-size: 24px;` (defaults to 16px)
-* **Trigger** [trigger]="'onClick'" - intitiates the ticker action when clicked ("onMouseEnter" is default)
+* **Text:** `[text]="'Some Text'"` - sets the ticker text. Can take a raw string or interpolated value from the component. 
+* **Speed:** `[speed]="30"` - Sets tick interval in milliseconds (defaults to 1 tick every 25 milliseconds)
+* **Padding-right:** `[padding-right]='50'` - sets the space between strings (defaults to 16px)
+* **Size:** [size]="24" - Sets the font-size (defaults to 16px)
+* **Trigger** [trigger]="'onClick'" - selects how the ticker will be triggered: 'onMouseEnter', 'onClick', or 'auto' ('onMouseEnter' is default)
