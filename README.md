@@ -20,8 +20,14 @@ import { TickerDirective } from './directives/ticker.directive';
 Add a "ghost" element anywhere in your application. This will be used to measure the length of the text in pixels.
 ```
 <div id="ghost"></div>
-
-/* in main stylesheet */
+```
+Add these styles to your main style sheet
+```
+.tickerContainer{
+   overflow-x: hidden;
+   overflow-y: scroll;
+   white-space: nowrap;
+}
 #ghost{
     display: inline-block;
     height: 0;
@@ -30,22 +36,14 @@ Add a "ghost" element anywhere in your application. This will be used to measure
 ```
 ## How to Use
 
-Add the attribute `ticker` to the desired element and pass in the desired parameters
+Add the attribute `ticker` to the desired element and pass in the desired parameters, and wrap the ticker element in the `.tickerContainer` class
 
 ```
-<div ticker [text]="food.name" [size]="30"></div>
+<div class="tickerContainer">
+  <div ticker [text]="'Some long string of text'" [size]="30"></div>
+<div>
 ```
 
-Wrap the ticker element in a conatiner with the following styles:
-
-```
-/* in main stylesheet */
-.tickerContainer{
-   overflow-x: hidden;
-   overflow-y: scroll;
-   white-space: nowrap;
-}
-```
 ### Example
 
 [Plunkr](https://embed.plnkr.co/4mBHkIVTetC0kh34JOyT/)
