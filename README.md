@@ -17,7 +17,7 @@ import { TickerDirective } from './directives/ticker.directive';
     ...
   ],
 ...
-```
+````
 
 Add a "ghost" element anywhere in your application. This will be used to measure the length of the text in pixels.
 ```
