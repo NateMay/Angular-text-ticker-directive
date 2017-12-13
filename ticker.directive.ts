@@ -83,7 +83,7 @@ export class TickerDirective implements OnInit {
         self = this.r.createElement( this.el.nativeElement, 'span' );
         this.r.setElementStyle( self, 'padding-right', this.paddingRight + 'px');
         this.r.setElementStyle( self, 'font-size', this.size + 'px');
-        this.r.setText( self, text );
+        self.innerHTML = this.text;
         return self;
     }
 
