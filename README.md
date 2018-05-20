@@ -1,4 +1,4 @@
-# Angular2-text-ticker-directive
+# Angular-text-ticker-directive
 An attribute directive that transforms an element into a never ending carousel of left scrolling text. Takes a text string, a desired speed, font-size, and padding, as well as the event type which triggers the action. Also called a "news ticker" or "stock ticker".
 
 [Demo](https://embed.plnkr.co/4mBHkIVTetC0kh34JOyT/)
